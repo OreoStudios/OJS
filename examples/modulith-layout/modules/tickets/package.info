@@ -1,0 +1,10 @@
+{
+  "name": "tickets",
+  "version": "1.0.0",
+  "description": "Example ticket application",
+  "dependencies": [
+    "database"
+  ],
+  "entry": "index.js",
+  "api": "api/index.js"
+}

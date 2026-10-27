@@ -2,6 +2,8 @@
 const { EventBus } = require('./events');
 const { Container } = require('./container');
 const { moduleGraph } = require('./graph');
+const { readModuleManifest, discoverModuleManifests } = require('./manifest');
+const { checkModuleBoundaries, assertModuleBoundaries } = require('./boundaries');
 class Modulith {
   #definitions = new Map();
   #instances = new Map();
@@ -15,6 +17,18 @@ class Modulith {
     const dependencies = definition.dependencies || [];
     if (!Array.isArray(dependencies) || dependencies.some(d => typeof d !== 'string')) throw Error('Invalid dependencies');
     this.#definitions.set(definition.name, { ...definition, dependencies: [...dependencies] });
+    return this;
+  }
+  registerDirectory(root, options = {}) {
+    if (options.enforceBoundaries !== false) assertModuleBoundaries(root);
+    const manifests = discoverModuleManifests(root);
+    for (const meta of manifests) {
+      const exported = require(meta.entryFile);
+      const factory = typeof exported === 'function' ? exported : exported?.factory;
+      if (typeof factory !== 'function') throw Error(`Module entry must export a factory: ${meta.name}`);
+      this.register({name: meta.name, dependencies: meta.dependencies, factory});
+    }
+    this.order();
     return this;
   }
   definitions() { return [...this.#definitions.values()].map(d => ({name:d.name,dependencies:[...d.dependencies]})); }
@@ -63,4 +77,4 @@ class Modulith {
     if (errors.length) throw new AggregateError(errors, 'Module shutdown failures');
   }
 }
-module.exports = { Modulith, EventBus, Container, moduleGraph };
+module.exports = { Modulith, EventBus, Container, moduleGraph, readModuleManifest, discoverModuleManifests, checkModuleBoundaries, assertModuleBoundaries };

@@ -1,0 +1,13 @@
+{
+  "name": "@ojs/prism-sentinel-example",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "test": "node --test tests/*.test.js"
+  },
+  "dependencies": {
+    "@ojs/prism": "file:../../packages/prism",
+    "@ojs/observability": "file:../../packages/observability",
+    "@ojs/security-events": "file:../../packages/security-events"
+  }
+}

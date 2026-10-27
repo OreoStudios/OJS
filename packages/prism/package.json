@@ -1,0 +1,16 @@
+{
+  "name": "@ojs/prism",
+  "version": "0.1.0",
+  "type": "commonjs",
+  "description": "Deterministic property testing inspired by OreoLib Prism",
+  "main": "src/index.js",
+  "exports": {
+    ".": "./src/index.js"
+  },
+  "engines": {
+    "node": ">=22"
+  },
+  "scripts": {
+    "test": "node --test test/*.test.js"
+  }
+}

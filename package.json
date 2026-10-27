@@ -6,11 +6,12 @@
     "examples/*"
   ],
   "scripts": {
-    "test": "node --test packages/*/test/*.test.js examples/supportdesk/tests/*.test.js",
+    "test": "node --test packages/*/test/*.test.js examples/supportdesk/tests/*.test.js examples/prism-sentinel/tests/*.test.js",
     "test:unit": "node --test packages/*/test/*.test.js",
     "test:web": "node --test examples/supportdesk/tests/*.test.js",
     "test:all": "npm test",
-    "check:modules": "node packages/modulith/bin/check-boundaries.js examples/modulith-layout/modules"
+    "check:modules": "node packages/modulith/bin/check-boundaries.js examples/modulith-layout/modules",
+    "test:prism": "node --test packages/prism/test/*.test.js examples/prism-sentinel/tests/*.test.js"
   },
   "engines": {
     "node": ">=22"

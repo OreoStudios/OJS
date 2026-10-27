@@ -8,3 +8,5 @@ logs/
 coverage/
 .DS_Store
 wazuh/vendor/
+
+.prism-regressions/

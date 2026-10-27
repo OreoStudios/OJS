@@ -1,0 +1,11 @@
+{
+  "name": "@ojs/modulith-layout-example",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "demo": "node demo.js"
+  },
+  "dependencies": {
+    "@ojs/modulith": "file:../../packages/modulith"
+  }
+}

@@ -1,0 +1,8 @@
+{
+  "name": "database",
+  "version": "1.0.0",
+  "description": "Example in-memory repository",
+  "dependencies": [],
+  "entry": "index.js",
+  "api": "api/index.js"
+}

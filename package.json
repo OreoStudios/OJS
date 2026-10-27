@@ -9,7 +9,8 @@
     "test": "node --test packages/*/test/*.test.js examples/supportdesk/tests/*.test.js",
     "test:unit": "node --test packages/*/test/*.test.js",
     "test:web": "node --test examples/supportdesk/tests/*.test.js",
-    "test:all": "npm test"
+    "test:all": "npm test",
+    "check:modules": "node packages/modulith/bin/check-boundaries.js examples/modulith-layout/modules"
   },
   "engines": {
     "node": ">=22"

@@ -68,3 +68,13 @@ team approval require separate execution and verification.
 
 OJS reduces repetitive security and observability work; no Node.js ORM can
 guarantee that an entire application is fully secure.
+
+## Declarative modulith manifests and boundaries
+
+Reusable `@ojs/modulith` now supports JSON `package.info` module manifests, `api/internal/domain` structure, `Modulith.registerDirectory()` and automated source boundary checks.
+
+- [Manifest schema and architecture rules](docs/MODULITH-BOUNDARIES.md)
+- Demo: `npm run check:modules` then `npm run demo --workspace=@ojs/modulith-layout-example`
+- Existing `Modulith.register()` calls remain supported.
+
+The boundary checker covers conventional static relative imports; it is not a full security sandbox or an AST-complete analyzer.

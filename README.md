@@ -78,3 +78,11 @@ Reusable `@ojs/modulith` now supports JSON `package.info` module manifests, `api
 - Existing `Modulith.register()` calls remain supported.
 
 The boundary checker covers conventional static relative imports; it is not a full security sandbox or an AST-complete analyzer.
+
+## PrismeJS — automatic tests inspired by OreoLib Prism
+
+The new `@ojs/prism` package provides seeded fuzzing, metamorphic tests, differential comparisons, inverse/round-trip checks, minimized failures and replayable regression cases. It includes NDJSON and Prometheus helpers designed especially for Sentinel X test contracts.
+
+- Run `npm run test:prism` to execute the PrismeJS package tests and real OJS observability examples.
+- See [PrismeJS documentation](docs/PRISMEJS.md).
+- The separate EPITECH Sentinel X application must opt in explicitly; these tests do not prove live Wazuh alerting.
